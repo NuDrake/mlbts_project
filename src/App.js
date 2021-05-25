@@ -15,7 +15,7 @@ class App extends React.Component{
     }
   }
   getListings() {
-    axios.get('https://cors-anywhere.herokuapp.com/https://mlb19.theshownation.com/apis/listings.json')
+    axios.get('https://cors-anywhere.herokuapp.com/https://mlb21.theshow.com/apis/listings.json')
       .then((response) => {
         this.setState({
           rowData: response.data
