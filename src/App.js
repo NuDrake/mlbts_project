@@ -20,6 +20,7 @@ class App extends React.Component{
         this.setState({
           rowData: response.data
         })
+        console.log(response.data)
       })
       .catch((err) => {
         console.log(err);
