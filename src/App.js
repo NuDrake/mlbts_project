@@ -1,46 +1,49 @@
+import logo from './logo.svg';
+import './App.css';
 import React from 'react';
 import axios from 'axios';
-import { AgGridReact } from 'ag-grid-react';
-import 'ag-grid-community/dist/styles/ag-grid.css';
-import 'ag-grid-community/dist/styles/ag-theme-balham.css';
+import Item from './ResultItem';
 
-class App extends React.Component{
+class App extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
+
     this.state = {
-      columnDefs: [{headerName: "Name", field: "name"}, 
-                    {headerName: "Best Sell Price", field: "best_sell_price"}, 
-                    {headerName: "Best Buy Price", field: "best_buy_price"}],
-      rowData: []
+      data: []
     }
   }
+
   getListings() {
-    axios.get('https://cors-anywhere.herokuapp.com/https://mlb21.theshow.com/apis/listings.json')
-      .then((response) => {
-        this.setState({
-          rowData: response.data
-        })
-        console.log(response.data)
+    axios.get('https://cors-maybe.herokuapp.com/https://mlb21.theshow.com/apis/item.json?uuid=19ca98dbb740f927e9a6b3ffc0c32755')
+    .then((response) => { 
+      console.log(response)
+      this.setState({
+        data: response.data
       })
-      .catch((err) => {
-        console.log(err);
-      })
+    })
+    .catch((err) => {
+      console.log(err);
+    })
   }
 
   componentDidMount () {
     this.getListings();
   }
 
-  render() {
+  // Fetch results from this file (most likely).  Map the state value for results to item component that displays 1 item each.
+  render () {
     return (
-      <div className="ag-theme-balham">
-        <AgGridReact
-          columnDefs={this.state.columnDefs}
-          rowData={this.state.rowData.listings}>
-        </AgGridReact>
+      <div className="App">
+        <header className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          <p>
+            {this.state.data.team}
+          </p>
+          <Item itemData={this.state.data}/>
+        </header>
       </div>
     );
-  }
+    }
 }
 
 export default App;
