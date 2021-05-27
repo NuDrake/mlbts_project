@@ -37,7 +37,7 @@ class App extends React.Component {
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>
-            {this.state.data.position}
+            {this.state.data.display_position}
           </p>
           <Item itemData={this.state.data}/>
         </header>
