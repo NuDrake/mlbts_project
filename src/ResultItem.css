@@ -1,0 +1,150 @@
+.detail-content {
+    width: 85%;
+}
+
+.itemContainer {
+    margin-left: 5%
+}
+
+.basicInfoContainer {
+    display: flex;
+}
+
+.basicInfoHeader {
+    display: flex;
+    align-items: center;
+    min-width: 470px;
+    height: 15%;
+    border-bottom: 2px solid white
+}
+
+.detailimg {
+    width: 20%;
+    min-width: 210px;
+    height: 20%;
+    margin-right: 3%;
+}
+
+.detailHeader {
+    min-width: 410px;
+    font-size:30px;
+}
+
+.detailIcon {
+    width: 30px;
+    height: 30px;
+}
+
+.basicCardInfo {
+    display: flex;
+}
+
+.basicCardInfoGeneral {
+    text-align: left;
+    font-size: 15px;
+    height: auto;
+}
+
+.listing{
+    display: flex;
+    align-items: center;
+}
+
+.listingImg {
+    width: 5%;
+    height: 5%;
+    margin-left: 2%
+}
+
+.basicCardInfoPitches {
+    font-size: 20px;
+    Margin-left: 50%;
+    height: 200px;
+}
+
+.pitchesHeader {
+    border-bottom: 2px solid white
+}
+
+.pitch {
+    font-size: 18px;
+}
+
+
+.pitchingAttributesHeader {
+    text-align: left;
+    border-bottom: 2px solid white;
+}
+
+.pitchingAttributes {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.attribute {
+    margin-right: 50px;
+}
+
+.pitchAttributesList {
+    display: flex;
+    flex-wrap: wrap
+}
+
+.pitchAttributesContainerHeader{
+    text-align: left;
+    border-bottom: 2px solid white;
+}
+
+.pitchAttributesContainer {
+    margin-right: 5%;
+    min-width: 300px;
+}
+
+.pitchAttributesHeader {
+    text-align: left;
+}
+
+.pitchAttributes {
+    display: flex;
+}
+
+.pitchAttribute {
+    margin-right: 5%;
+}
+
+.hittingAttributesHeader{
+    text-align: left;
+    border-bottom: 2px solid white;
+}
+
+.hittingAttributes {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.fieldingAttributesHeader{
+    text-align: left;
+    border-bottom: 2px solid white;
+}
+
+.fieldingAttributes {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.baserunningAttributesHeader{
+    text-align: left;
+    border-bottom: 2px solid white;
+}
+
+.baserunningAttributes {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.go-back-button {
+    margin-left: 50px;
+    margin-top: 1%;
+    min-width: 200px;   
+    height: 50px;
+  }

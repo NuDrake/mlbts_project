@@ -1,12 +1,9 @@
-.content{
-    width:85%;
-  }
-  
   .list-item-container {
     padding-bottom: 10px;
     padding-top: 10px;
     border-bottom: 1px solid white;
     border-top: 1px solid white;
+    font-size: 20px;
   }
   
   .list-item {
@@ -15,6 +12,7 @@
   
   .list-item-img {
     max-width: 10%;
+    min-width: 10%;
     margin-right: 5%;
     height: auto;
   }
@@ -45,3 +43,9 @@
     justify-content: left;
     align-items: center;
   }
+
+  .item-name:hover{
+    color: grey;
+    cursor: pointer; 
+  }
+  

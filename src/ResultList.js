@@ -9,10 +9,23 @@ import stubs from './resources/stubs.png'
 class ResultList extends React.Component {
     constructor(props) {
         super(props)
+        this.getDetails = this.getDetails.bind(this)
+    }
+
+    getDetails(e) {
+        console.log(e.target.attributes)
+        const id = e.target.attributes[1].nodeValue
+        var index = 0
+        while (this.props.Results[index].card_id !== id) {
+            index += 1
+        }
+        const item  = this.props.Results[index]
+        this.props.onGetDetails(item)
     }
 
     render() {
         const items = this.props.Results
+        //console.log(items)
         return (
             <div className="results-container">
                 <ol style={{listStyleType: "none"}}>
@@ -38,10 +51,12 @@ class ResultList extends React.Component {
                                 return (
                                     <li key={item.uuid} className="list-item-container">
                                         <div className="list-item">
-                                            <img className="list-item-img" src={item.img} />
-                                            <p className="list-item-name">{item.name}</p>
+                                            <img className="list-item-img" src={item.img} alt={item.name}/>
+                                            <div className="list-item-name">
+                                                <p className="item-name" onClick={this.getDetails} data-details={item.card_id}>{item.name}</p>
+                                            </div>
                                             <div className="list-item-ovr">
-                                                <img className="list-item-ovr-icon" src={icon}/>
+                                                <img className="list-item-ovr-icon" src={icon} alt="ovr-icon"/>
                                                 <p className="list-item-ovr-num">{item.overall}</p>
                                             </div>
                                             <p className="list-item-position">{item.display_position}</p>
@@ -55,19 +70,21 @@ class ResultList extends React.Component {
                                 return (
                                     <li key={item.uuid} className="list-item-container">
                                         <div className="list-item">
-                                            <img className="list-item-img" src={item.img} />
-                                            <p className="list-item-name">{item.name}</p>
+                                            <img className="list-item-img" src={item.img} alt={item.name}/>
+                                            <div className="list-item-name">
+                                                <p className="item-name" onClick={this.getDetails} data-details={item.card_id}>{item.name}</p>
+                                            </div>
                                             <div className="list-item-ovr">
-                                                <img className="list-item-ovr-icon" src={icon}/>
+                                                <img className="list-item-ovr-icon" src={icon} alt="ovr-icon"/>
                                                 <p className="list-item-ovr-num">{item.overall}</p>
                                             </div>
                                             <p className="list-item-position">{item.display_position}</p>
                                             <div className="list-item-buy">
-                                                <img className="stubs-icon" src={stubs}/>
+                                                <img className="stubs-icon" src={stubs} alt="stubs"/>
                                                 <p className="list-item-buy-price">{item.playerlisting.best_sell_price}</p>
                                             </div>
                                             <div className="list-item-sell">
-                                                <img className="stubs-icon" src={stubs}/>
+                                                <img className="stubs-icon" src={stubs} alt="stubs"/>
                                                 <p className="list-item-sell-price">{item.playerlisting.best_buy_price}</p>
                                             </div>
                                             <p className="list-item-team">{item.team}</p>
@@ -84,6 +101,8 @@ class ResultList extends React.Component {
 }
 
 export default ResultList
+
+//Anatomy of API response
 
 //     "card_id": "18ae1b898b96396eceab54056eae50ee",
 //     "name": "Aaron Bracho",

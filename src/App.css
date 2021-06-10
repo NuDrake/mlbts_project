@@ -2,6 +2,10 @@
   text-align: center;
 }
 
+.content{
+  width:85%;
+}
+
 .App-body {
   background-color: #282c34;
   min-height: 100vh;
@@ -14,6 +18,47 @@
 .App-link {
   color: #61dafb;
 }
+
+.result-headers {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  padding-left: 5px;
+  font-size: 20px;
+}
+
+.header-overall, .header-buy, .header-sell, .header-position {
+  width: 10%;
+  margin-right: 5%;
+  text-align: left;
+}
+
+.header-player {
+  padding-left: 26px;
+  margin-left: 15%;
+}
+
+.header-player, .header-team {
+  width: 35%;
+  margin-right: 5%;
+  text-align: left;
+}
+
+.page-change {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.page-num-container {
+  min-width: 15%;
+}
+
+.material-icons:hover  {
+  color: grey;
+  cursor: pointer;
+}
 /* Filter list formatting */
 #rarity-filter {
   width: 10%;
@@ -22,28 +67,26 @@
 /* Sidebar formatting */
 .sidebar{
   max-width: 20%;
-
 }
 
 .sidebar-container {
   display: flex;
   flex-direction: column;
-  bottom:0%;
+  bottom:0;
   right:85%;
   height: 100vh;
   width: 15%;
   position: fixed;
   border-right: 2px solid white;
+  min-width: 200px;
+  font-size: 20px;
 }
 
-.result-headers {
-  display: flex;
-  justify-content: left;
-  align-items: center;
-  padding-left: 20%;
-  font-size: 80%;
+.dataAccess {
+  margin-top: 10px;
 }
 
-.header {
-  margin-right: 5%;
+.dataAccess:hover {
+  color: grey;
+  cursor: pointer;
 }
