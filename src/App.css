@@ -2,46 +2,31 @@
   text-align: center;
 }
 
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  background-color: #282c34;
+}
+
 .content{
-  width:85%;
+  width: calc(100% - 200px);
+  margin-left: 10px;
 }
 
 .App-body {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   justify-content: right;
   font-size: calc(10px + 2vmin);
   color: white;
+  line-height: 1.5;
+
 }
 
 .App-link {
   color: #61dafb;
-}
-
-.result-headers {
-  display: flex;
-  justify-content: left;
-  align-items: center;
-  padding-left: 5px;
-  font-size: 20px;
-}
-
-.header-overall, .header-buy, .header-sell, .header-position {
-  width: 10%;
-  margin-right: 5%;
-  text-align: left;
-}
-
-.header-player {
-  padding-left: 26px;
-  margin-left: 15%;
-}
-
-.header-player, .header-team {
-  width: 35%;
-  margin-right: 5%;
-  text-align: left;
 }
 
 .page-change {
@@ -65,17 +50,14 @@
 }
 
 /* Sidebar formatting */
-.sidebar{
-  max-width: 20%;
-}
-
 .sidebar-container {
   display: flex;
+  flex-shrink:0;
   flex-direction: column;
   bottom:0;
-  right:85%;
+  right: calc(100% - 190px);
   height: 100vh;
-  width: 15%;
+  width: 200px;
   position: fixed;
   border-right: 2px solid white;
   min-width: 200px;

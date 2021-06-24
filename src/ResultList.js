@@ -25,79 +25,165 @@ class ResultList extends React.Component {
 
     render() {
         const items = this.props.Results
-        //console.log(items)
+
         return (
             <div className="results-container">
-                <ol style={{listStyleType: "none"}}>
-                    {
-                        items.map(item => {
-                            // Certain ranges of player overall have icons associated with them.
-                            // This blocks sets those icons.
-                            var icon
-                            if (item.overall < 65) {
-                                icon = common
-                            } else if (item.overall < 75) {
-                                icon = bronze
-                            } else if (item.overall < 80) {
-                                icon = silver
-                            } else if (item.overall < 85) {
-                                icon = gold
-                            } else {
-                                icon = diamond
-                            }
-                            
-                            // If card is non-sellable, playerlisting is null, leave buy/sell sections empty if so.
-                            if (item.playerlisting == null) {
-                                return (
-                                    <li key={item.uuid} className="list-item-container">
-                                        <div className="list-item">
-                                            <img className="list-item-img" src={item.img} alt={item.name}/>
-                                            <div className="list-item-name">
+                <table className="results-table">
+                    <thead>
+                        <tr>
+                            <th className="header-image">Image</th>
+                            <th className="header-player">Name</th>
+                            <th className="header-player">Overall</th>
+                            <th className="header-position">Position</th>
+                            <th className="header-buy">Buy Now</th>
+                            <th className="header-sell">Sell Now</th>
+                            <th className="header-team">Team</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {
+                            items.map(item => {
+                                // Certain ranges of player overall have icons associated with them.
+                                // This blocks sets those icons.
+                                var icon
+                                if (item.overall < 65) {
+                                    icon = common
+                                } else if (item.overall < 75) {
+                                    icon = bronze
+                                } else if (item.overall < 80) {
+                                    icon = silver
+                                } else if (item.overall < 85) {
+                                    icon = gold
+                                } else {
+                                    icon = diamond
+                                }
+
+                                // If card is non-sellable, playerlisting is null, leave buy/sell sections empty if so.
+                                if(item.playerlisting == null) {
+                                    return (
+                                        <tr className="list-item-container">
+                                            <td><img className="list-item-img" src={item.img} alt={item.name}/></td>
+                                            <td>
                                                 <p className="item-name" onClick={this.getDetails} data-details={item.card_id}>{item.name}</p>
-                                            </div>
-                                            <div className="list-item-ovr">
+                                            </td>
+                                            <td className="list-item-ovr">
                                                 <img className="list-item-ovr-icon" src={icon} alt="ovr-icon"/>
-                                                <p className="list-item-ovr-num">{item.overall}</p>
-                                            </div>
-                                            <p className="list-item-position">{item.display_position}</p>
-                                            <p className="list-item-buy"> </p>
-                                            <p className="list-item-sell"> </p>
-                                            <p className="list-item-team">{item.team}</p>
-                                        </div>
-                                    </li>
-                                )
-                            } else {
-                                return (
-                                    <li key={item.uuid} className="list-item-container">
-                                        <div className="list-item">
-                                            <img className="list-item-img" src={item.img} alt={item.name}/>
-                                            <div className="list-item-name">
+                                                {item.overall}
+                                            </td>
+                                            <td className="list-item-position">{item.display_position}</td>
+                                            <td className="list-item-buy"></td>
+                                            <td className="list-item-sell"></td>
+                                            <td className="list-item-team">{item.team}</td>
+                                        </tr>
+                                    )
+                                } else {
+                                    return (
+                                        <tr className="list-item-container">
+                                            <td><img className="list-item-img" src={item.img} alt={item.name}/></td>
+                                            <td>
                                                 <p className="item-name" onClick={this.getDetails} data-details={item.card_id}>{item.name}</p>
-                                            </div>
-                                            <div className="list-item-ovr">
+                                            </td>
+                                            <td className="list-item-ovr">
                                                 <img className="list-item-ovr-icon" src={icon} alt="ovr-icon"/>
-                                                <p className="list-item-ovr-num">{item.overall}</p>
-                                            </div>
-                                            <p className="list-item-position">{item.display_position}</p>
-                                            <div className="list-item-buy">
+                                                {item.overall}
+                                            </td>
+                                            <td className="list-item-position">{item.display_position}</td>
+                                            <td>
                                                 <img className="stubs-icon" src={stubs} alt="stubs"/>
-                                                <p className="list-item-buy-price">{item.playerlisting.best_sell_price}</p>
-                                            </div>
-                                            <div className="list-item-sell">
+                                                {item.playerlisting.best_sell_price}
+                                            </td>
+                                            <td>
                                                 <img className="stubs-icon" src={stubs} alt="stubs"/>
-                                                <p className="list-item-sell-price">{item.playerlisting.best_buy_price}</p>
-                                            </div>
-                                            <p className="list-item-team">{item.team}</p>
-                                        </div>
-                                    </li>
-                                )
-                            }
-                        })
-                    }
-                </ol>
+                                                {item.playerlisting.best_buy_price}
+                                            </td>
+                                            <td className="list-item-team">{item.team}</td>
+                                        </tr>
+                                    )
+                                }
+                            })
+                        }
+                    </tbody>
+                </table>
             </div>
         )
     }
+                    
+
+    // render() {
+    //     const items = this.props.Results
+    //     //console.log(items)
+    //     return (
+    //         <div className="results-container">
+    //             <ol style={{listStyleType: "none"}}>
+    //                 {
+    //                     items.map(item => {
+    //                         // Certain ranges of player overall have icons associated with them.
+    //                         // This blocks sets those icons.
+    //                         var icon
+    //                         if (item.overall < 65) {
+    //                             icon = common
+    //                         } else if (item.overall < 75) {
+    //                             icon = bronze
+    //                         } else if (item.overall < 80) {
+    //                             icon = silver
+    //                         } else if (item.overall < 85) {
+    //                             icon = gold
+    //                         } else {
+    //                             icon = diamond
+    //                         }
+                            
+    //                         // If card is non-sellable, playerlisting is null, leave buy/sell sections empty if so.
+    //                         if (item.playerlisting == null) {
+    //                             return (
+    //                                 <li key={item.uuid} className="list-item-container">
+    //                                     <div className="list-item">
+    //                                         <img className="list-item-img" src={item.img} alt={item.name}/>
+    //                                         <div className="list-item-name">
+    //                                             <p className="item-name" onClick={this.getDetails} data-details={item.card_id}>{item.name}</p>
+    //                                         </div>
+    //                                         <div className="list-item-ovr">
+    //                                             <img className="list-item-ovr-icon" src={icon} alt="ovr-icon"/>
+    //                                             <p className="list-item-ovr-num">{item.overall}</p>
+    //                                         </div>
+    //                                         <p className="list-item-position">{item.display_position}</p>
+    //                                         <p className="list-item-buy"> </p>
+    //                                         <p className="list-item-sell"> </p>
+    //                                         <p className="list-item-team">{item.team}</p>
+    //                                     </div>
+    //                                 </li>
+    //                             )
+    //                         } else {
+    //                             return (
+    //                                 <li key={item.uuid} className="list-item-container">
+    //                                     <div className="list-item">
+    //                                         <img className="list-item-img" src={item.img} alt={item.name}/>
+    //                                         <div className="list-item-name">
+    //                                             <p className="item-name" onClick={this.getDetails} data-details={item.card_id}>{item.name}</p>
+    //                                         </div>
+    //                                         <div className="list-item-ovr">
+    //                                             <img className="list-item-ovr-icon" src={icon} alt="ovr-icon"/>
+    //                                             <p className="list-item-ovr-num">{item.overall}</p>
+    //                                         </div>
+    //                                         <p className="list-item-position">{item.display_position}</p>
+    //                                         <div className="list-item-buy">
+    //                                             <img className="stubs-icon" src={stubs} alt="stubs"/>
+    //                                             <p className="list-item-buy-price">{item.playerlisting.best_sell_price}</p>
+    //                                         </div>
+    //                                         <div className="list-item-sell">
+    //                                             <img className="stubs-icon" src={stubs} alt="stubs"/>
+    //                                             <p className="list-item-sell-price">{item.playerlisting.best_buy_price}</p>
+    //                                         </div>
+    //                                         <p className="list-item-team">{item.team}</p>
+    //                                     </div>
+    //                                 </li>
+    //                             )
+    //                         }
+    //                     })
+    //                 }
+    //             </ol>
+    //         </div>
+    //     )
+    // }
 }
 
 export default ResultList

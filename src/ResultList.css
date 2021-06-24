@@ -1,51 +1,53 @@
-  .list-item-container {
-    padding-bottom: 10px;
-    padding-top: 10px;
-    border-bottom: 1px solid white;
-    border-top: 1px solid white;
-    font-size: 20px;
-  }
-  
-  .list-item {
-    display:flex;
-  }
-  
-  .list-item-img {
-    max-width: 10%;
-    min-width: 10%;
-    margin-right: 5%;
-    height: auto;
-  }
-  
-  .list-item-ovr, .list-item-position, .list-item-buy, .list-item-sell {
-    width: 10%;
-    margin-right: 5%;
-    display:flex;
-    justify-content: left;
-    align-items: center;
-  }
-  
-  .list-item-ovr-icon {
-    max-width: 40%;
-    margin-right: 3px;
-  }
-  
-  .stubs-icon {
-    max-width: 30%;
-    margin-right: 3px;
-    padding-top: 3px;
-  }
-  
-  .list-item-name, .list-item-team {
-    width: 35%;
-    margin-right: 5%;
-    display:flex;
-    justify-content: left;
-    align-items: center;
-  }
+ 
+.results-container {
+  overflow-x: auto;
+}
 
-  .item-name:hover{
-    color: grey;
-    cursor: pointer; 
-  }
+table {
+  border-collapse: collapse;
+  font-size: 18px;
+}
+
+.results-table {
+  width: 100%;
+  min-width: 700px;
+  white-space: no-wrap;
+  text-align: left;
+}
+
+td {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid white;
   
+}
+
+.list-item-container {
+  height: 150px;
+}
+
+.list-item-ovr {
+  vertical-align: middle;
+}
+
+.list-item-img {
+  max-width: 100px;
+  min-width: 100px;
+  height: auto;
+}
+
+.list-item-ovr-icon {
+  width: 21px;
+  height: 21px;
+}
+
+.stubs-icon {
+  width: 21px;
+  height: 21px;
+}
+
+
+.item-name:hover{
+  color: grey;
+  cursor: pointer; 
+}

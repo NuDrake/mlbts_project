@@ -219,14 +219,6 @@ class App extends React.Component {
                     this.setCountVals()
                   }
                 </div>
-              <div className="result-headers">
-                <p className="header-player">Player</p>
-                <p className="header-overall">Overall</p>
-                <p className="header-position">Position</p>
-                <p className="header-buy">Buy Now</p>
-                <p className="header-sell">Sell Now</p>
-                <p className="header-team">Team</p>
-              </div>
               <ResultList Results={this.state.data} onGetDetails={this.handleDetails}/>
               <div className="page-num-container">
                 {
